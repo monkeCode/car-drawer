@@ -20,7 +20,7 @@ public class Circle extends Pixel
     }
 
     @Override
-    public Collection<Pixel> draw() {
+    public void draw(Collection<Pixel> collection) {
         List<Pixel> pixels = new ArrayList<>();
         for(int y = - radius; y <=radius; y++)
         {
@@ -32,6 +32,6 @@ public class Circle extends Pixel
                 }
             }
         }
-        return pixels;
+        collection.addAll(pixels);
     }
 }

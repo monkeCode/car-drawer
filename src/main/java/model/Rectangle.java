@@ -17,13 +17,13 @@ public class Rectangle extends Pixel {
     }
 
     @Override
-    public Collection<Pixel> draw() {
+    public void draw(Collection<Pixel> collection) {
         List<Pixel> pixels = new ArrayList<>();
         for (int i = getY(); i < getY()+height; i++)
             for (int j = getX(); j < getX() + width; j++)
             {
                 pixels.add(new Pixel(getColor(),j,i));
             }
-        return pixels;
+        collection.addAll(pixels);
     }
 }

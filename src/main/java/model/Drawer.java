@@ -51,7 +51,7 @@ public class Drawer {
     {
         List<Pixel> pixels = new ArrayList<>();
         for(var el: elements){
-            pixels.addAll(el.draw());
+            el.draw(pixels);
         }
         return pixels;
     }

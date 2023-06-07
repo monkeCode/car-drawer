@@ -29,8 +29,8 @@ public class Pixel {
         return y;
     }
 
-    public Collection<Pixel> draw()
+    public void draw(Collection<Pixel> collection)
     {
-        return List.of(this);
+         collection.add(this);
     }
 }
