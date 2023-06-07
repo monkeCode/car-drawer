@@ -8,12 +8,12 @@ public class Drawer {
 
     private Color activeColor;
 
-    private final Set<Pixel> pixels;
+    private final List<Pixel> elements;
 
     public Drawer()
     {
         activeColor = Color.black;
-        pixels = new HashSet<>();
+        elements = new ArrayList<>();
     }
 
     public Drawer setColor(Color color)
@@ -29,20 +29,11 @@ public class Drawer {
      * @param radius circle radius
      * @return Drawer instance
      */
-    public Drawer drawCircle(int centerX, int centerY, int radius )
-    {
-        for(int y = - radius; y <=radius; y++)
-        {
-            for(int x = - radius; x <=radius; x++)
-            {
-                if(x*x + y*y < radius*radius)
-                {
-                    pixels.add(new Pixel(activeColor, centerX+x, centerY+ y));
-                }
-            }
-        }
-        return this;
-    }
+     public Drawer drawCircle(int centerX, int centerY, int radius)
+     {
+         elements.add(new Circle(activeColor, centerX, centerY, radius));
+         return this;
+     }
 
     /**
         <h3>Add rectangle to draw queue</h3>
@@ -52,16 +43,16 @@ public class Drawer {
      **/
     public Drawer drawRect(int x, int y , int width, int height)
     {
-        for (int i = y; i < y+height; i++)
-            for (int j = x; j < x + width; j++)
-            {
-                pixels.add(new Pixel(activeColor,j,i));
-            }
+        elements.add(new Rectangle(activeColor, x, y, width, height));
         return this;
     }
 
     public Collection<Pixel> draw()
     {
+        List<Pixel> pixels = new ArrayList<>();
+        for(var el: elements){
+            pixels.addAll(el.draw());
+        }
         return pixels;
     }
 

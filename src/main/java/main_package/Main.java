@@ -6,7 +6,6 @@ import model.Pixel;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collection;
-import java.util.Random;
 
 public class Main {
 
@@ -50,8 +49,8 @@ public class Main {
             super.paint(g);
             for(var pixel : pixels)
             {
-                g.setColor(pixel.color());
-                g.drawLine(pixel.x(),pixel.y(), pixel.x(),pixel.y());
+                g.setColor(pixel.getColor());
+                g.drawLine(pixel.getX(),pixel.getY(), pixel.getX(),pixel.getY());
             }
 
         }
@@ -62,10 +61,6 @@ public class Main {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
 
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(Main::createAndShowGUI);
     }
 }
