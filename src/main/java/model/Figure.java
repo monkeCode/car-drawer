@@ -1,20 +1,18 @@
 package model;
 
 import java.awt.*;
-import java.util.Collection;
-import java.util.List;
 
-public class Pixel {
-
+public class Figure
+{
     private final int y;
     private final int x;
     private final Color color;
 
-    public Pixel(Color color, int x, int y)
+    public Figure(int x, int y, Color color)
     {
-        this.color = color;
         this.x = x;
         this.y = y;
+        this.color = color;
     }
 
     public Color getColor() {
@@ -28,5 +26,4 @@ public class Pixel {
     public final int getY() {
         return y;
     }
-
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Rectangle extends Pixel {
+public class Rectangle implements Drawable {
 
     private final int width;
     private final int height;
@@ -25,5 +25,10 @@ public class Rectangle extends Pixel {
                 pixels.add(new Pixel(getColor(),j,i));
             }
         return pixels;
+    }
+
+    @Override
+    public Collection<Pixel> decompose() {
+        return null;
     }
 }
