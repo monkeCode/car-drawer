@@ -1,11 +1,10 @@
 package main_package;
 
-import model.Drawer;
-import model.Pixel;
+import Presenters.MainPresenter;
+import Presenters.Presentable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Collection;
 
 public class Main {
 
@@ -27,32 +26,16 @@ public class Main {
 
     public static class PixelCanvas extends Canvas {
 
-
-        Collection<Pixel> pixels;
-
-        public PixelCanvas()
-        {
-            //f*n hardcode
-            Drawer drawer = new Drawer();
-            drawer.setColor(Color.GRAY)
-                    .drawRect(100,100, 400,100)
-                    .drawRect(200,50,250,50)
-                    .setColor(Color.cyan)
-                    .drawCircle(180,200, 50)
-                    .drawCircle(420,200, 50);
-
-            pixels = drawer.draw();
-        }
+        private Presentable presenter = new MainPresenter();
 
         @Override
         public void paint(Graphics g) {
             super.paint(g);
-            for(var pixel : pixels)
+            for(var pixel : presenter.getView().draw())
             {
                 g.setColor(pixel.getColor());
                 g.drawLine(pixel.getX(),pixel.getY(), pixel.getX(),pixel.getY());
             }
-
         }
     }
 

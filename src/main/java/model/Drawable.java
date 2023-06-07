@@ -4,5 +4,7 @@ import java.util.Collection;
 
 public interface Drawable
 {
-    public Collection<Pixel> decompose();
+    Collection<Pixel> decompose();
+    int getLayer();
+    void setLayer(int layer);
 }

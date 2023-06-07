@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Circle extends Pixel
+public class Circle extends Figure
 {
 
     private final int radius;
 
-    public Circle(Color color, int x, int y, int radius) {
-        super(color, x, y);
+    public Circle(int x, int y, int radius, Color color, int layer) {
+        super(x, y, color, layer);
         this.radius = radius;
     }
 
@@ -20,7 +20,7 @@ public class Circle extends Pixel
     }
 
     @Override
-    public Collection<Pixel> draw() {
+    public Collection<Pixel> decompose() {
         List<Pixel> pixels = new ArrayList<>();
         for(int y = - radius; y <=radius; y++)
         {
