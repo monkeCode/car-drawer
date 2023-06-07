@@ -1,8 +1,6 @@
 package model;
 
 import java.awt.*;
-import java.util.Collection;
-import java.util.List;
 
 public class Pixel {
 
