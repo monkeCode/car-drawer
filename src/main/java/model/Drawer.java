@@ -47,6 +47,12 @@ public class Drawer {
         return this;
     }
 
+    public Drawer drawTriangle(int x, int y, int width, int height)
+    {
+        elements.add(new Triangle(activeColor,x,y,width,height));
+        return this;
+    }
+
     public Collection<Pixel> draw()
     {
         List<Pixel> pixels = new ArrayList<>();
