@@ -32,15 +32,15 @@ public class Main {
 
         public PixelCanvas()
         {
-            //f*n hardcode
             Drawer drawer = new Drawer();
             drawer.setColor(Color.GRAY)
                     .drawRect(100,100, 400,100)
                     .drawRect(200,50,250,50)
                     .setColor(Color.cyan)
                     .drawCircle(180,200, 50)
-                    .drawCircle(420,200, 50);
-
+                    .drawCircle(420,200, 50)
+                    .setColor(Color.YELLOW)
+                    .drawTriangle(260,0, 100,50);
             pixels = drawer.draw();
         }
 

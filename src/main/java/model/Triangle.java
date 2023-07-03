@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Triangle extends Pixel{
@@ -15,17 +16,16 @@ public class Triangle extends Pixel{
 
     @Override
     public void draw(Collection<Pixel> collection) {
-        var curY = getY()-height;
-        int baseY = getY() + height;
         int halfBase = width / 2;
-
+        var pixels = new ArrayList<Pixel>();
         for (int i = 0; i < height; i++) {
             int startX = getX() + halfBase - (i * halfBase / height);
-            int endX = curY + halfBase + (i * halfBase / height);
+            int endX = getX() + halfBase + (i * halfBase / height);
 
             for (int j = startX; j <= endX; j++) {
-                collection.add(new Pixel(getColor(), j, baseY + i));
+                pixels.add(new Pixel(getColor(), j, getY() + i));
             }
         }
+        collection.addAll(pixels);
     }
 }
