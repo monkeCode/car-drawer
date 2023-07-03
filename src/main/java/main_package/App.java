@@ -1,18 +1,17 @@
-package Presenters;
+package main_package;
 
 import Views.MainView;
 import Views.View;
 
-public class MainPresenter implements Presentable
+public class App
 {
     private View activeView;
 
-    public MainPresenter()
+    public App()
     {
         activeView = new MainView();
     }
 
-    @Override
     public View getView() {
         return activeView;
     }

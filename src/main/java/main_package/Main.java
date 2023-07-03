@@ -1,7 +1,5 @@
 package main_package;
 
-import Presenters.MainPresenter;
-import Presenters.Presentable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,12 +24,12 @@ public class Main {
 
     public static class PixelCanvas extends Canvas {
 
-        private Presentable presenter = new MainPresenter();
+        private final App application = new App();
 
         @Override
         public void paint(Graphics g) {
             super.paint(g);
-            for(var pixel : presenter.getView().draw())
+            for(var pixel : application.getView().draw())
             {
                 g.setColor(pixel.getColor());
                 g.drawLine(pixel.getX(),pixel.getY(), pixel.getX(),pixel.getY());

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Car implements Drawable {
 
-    private final List<Drawable> drawables = new ArrayList<>();
+    protected final List<Drawable> drawables = new ArrayList<>();
     private int layer;
 
     public Car(int x, int y, int layer)
