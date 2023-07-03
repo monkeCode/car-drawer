@@ -62,8 +62,6 @@ public class Drawer {
 
     public Drawer drawTriangle(int x, int y, int width, int height)
     {
-        y-=height;
-        int baseY = y + height;
         int halfBase = width / 2;
 
         for (int i = 0; i < height; i++) {
@@ -71,7 +69,7 @@ public class Drawer {
             int endX = x + halfBase + (i * halfBase / height);
 
             for (int j = startX; j <= endX; j++) {
-                pixels.add(new Pixel(activeColor, j, baseY + i));
+                pixels.add(new Pixel(activeColor, j, y + i));
             }
         }
         return this;
